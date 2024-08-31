@@ -169,7 +169,6 @@ function parse_parameters() {
 
 # Update the linux-stable remote (and add it if it doesn't exist)
 function update_remote() {
-function update_remote() {
     header "Updating openela/kernel-lts (linux-4.14.y branch)"
 
     # Add remote if it isn't already present
