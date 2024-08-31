@@ -169,15 +169,16 @@ function parse_parameters() {
 
 # Update the linux-stable remote (and add it if it doesn't exist)
 function update_remote() {
-    header "Updating linux-stable"
+function update_remote() {
+    header "Updating openela/kernel-lts (linux-4.14.y branch)"
 
     # Add remote if it isn't already present
     cd "${KERNEL_FOLDER}" || die "Could not change into ${KERNEL_FOLDER}!"
 
-    if git fetch --tags https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/; then
-        success "linux-stable updated successfully!"
+    if git fetch --tags https://github.com/openela/kernel-lts.git linux-4.14.y; then
+        success "openela/kernel-lts (linux-4.14.y) updated successfully!"
     else
-        die "linux-stable update failed!"
+        die "openela/kernel-lts (linux-4.14.y) update failed!"
     fi
 
     [[ ${FETCH_REMOTE_ONLY} ]] && exit 0
